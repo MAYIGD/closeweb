@@ -4,9 +4,10 @@
 <header>
 
 </header>
-<body onLoad="testClose_ios()">
+<body onLoad="testOnLoad()">
    <button onclick="testfun()" >請點我( ^.＜ )</button></br></br>
    <button onclick="testClose_ios()" >請點我關閉iOS( ^.＜ )</button></br></br>
+      <button onclick="mplusClose()" >請點我關閉iOS Fuboon( ^.＜ )</button></br></br>
 <button onclick="testfun1()" >doSDMPSuccess</button></br></br>
 <button onclick="testfun2()" >doSDMPFailWithMsg</button></br></br>
 <button onclick="testfun3()" >doSDMPCancelWithMsg( ^.＜ )</button></br> </br>
@@ -14,12 +15,17 @@
 <a href="mplusmessenger://conf/16445700425909007262">test link</a></br></br>
 
 <script>
+   function testOnLoad() {
+   }
    function testfun() {
       if(window.Mplus != null){
          window.Mplus.openLink('mplusmessenger://conf/16445700425909007262');
       }
    }
 
+   function mplusClose(){
+			Mplus.close();
+	}
 
    function testClose_ios() {
       if(window.webkit != null){
