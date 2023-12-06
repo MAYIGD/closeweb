@@ -2,71 +2,40 @@
 <!DOCTYPE html>
 <html>
 <header>
-
+   <style>
+      .block {
+        display: block;
+        width: 100%;
+        border: none;
+        background-color: #04AA6D;
+        color: white;
+        padding: 14px 28px;
+        font-size: 16px;
+        cursor: pointer;
+        text-align: center;
+      }
+      
+      .block:hover {
+        background-color: #ddd;
+        color: black;
+      }
+      </style>
 </header>
 <body onLoad="testOnLoad()">
-   <button onclick="testfun()" >請點我( ^.＜ )</button></br></br>
-   <button onclick="testClose_ios()" >請點我關閉iOS( ^.＜ )</button></br></br>
-   <button onclick="mplusClose();" >請點我關閉~~</button></br></br>
-<a href="mplusmessenger://conf/16445700425909007262">test link</a></br></br>
+   <button class="block" onclick="mplusClose()" >close</button></br></br>
 
 <script>
    function testOnLoad() {
    }
    
-   function testfun() {
-      if(window.Mplus != null){
-         window.Mplus.openLink('mplusmessenger://conf/16445700425909007262');
-      }
-   }
-
    function mplusClose(){
      if(window.Mplus != null){
             Mplus.close();
         }
-        if(window.webkit != null){
-            window.webkit.messageHandlers.Mplus.postMessage('close');
-        }
-    }
-	
-
-
-   function testClose_ios() {
       if(window.webkit != null){
-        window.webkit.messageHandlers.Mplus.postMessage('close');
+            window.webkit.messageHandlers.Mplus.postMessage('close');
       }
    }
-
-   function testfun1() {
-      if(window.MPlus != null){
-         window.MPlus.doSDMPSuccess();
-      }
-        if(window.webkit != null){
-     window.webkit.messageHandlers.Mplus.postMessage({"name": "doSDMPSuccess"});
-  }
-}
-   function testfun2() {
-       if(window.MPlus != null){
-          window.MPlus.doSDMPFailWithMsg("01", "failed");
-       }
-          if(window.webkit != null){
-     window.webkit.messageHandlers.Mplus.postMessage({name: "doSDMPFailWithMsg", code: "01", msg: "failed"});
-  }
-}
-      function testfun3() {
-   
-            if(window.MPlus != null){
-            MPlus.doSDMPCancelWithMsg("02", "cancel");
-       }
-          if(window.webkit != null){
-     window.webkit.messageHandlers.Mplus.postMessage({name: "doSDMPCancelWithMsg", code: "02", msg: "cancel"});
-  }
-         function goToSignFlowDetail(){
-           window.location.href='https://www.google.com/';
-         }
-}
 </script>
-<a href="https://esrvtest.taipeifubon.com.tw/bank_bcs/m/doOpenApp?action=fubonmbank://?menuId=MPS12">富邦url</a>
-<a href="fubonmbank://?menuId=MPS12">富邦scheme</a>
 </body>
 </html>
